@@ -58,6 +58,8 @@
         "cert-expires-soon": "alert",
         "cert-insecure-signing-algorithm": "alert",
         "cert-insufficient-key-length": "alert",
+        "checkov-ckv_azure_5": "alert",
+        "checkov-ckv_azure_8": "alert",
         "gcp-gce-default-svcacct": "alert",
         "gcp-gce-fw-public-rdp": "alert",
         "gcp-gce-fw-public-ssh": "alert",

@@ -28,3 +28,31 @@ jobs:
           additional_args: --disable-telemetry --api-version v2 --diff-scan-timeout 180
           cli_version: 3.0.0.rc483
           scanner_version: 3.0.0.rc483
+  byos_scanner:
+    name: Boost Custom Scanner
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install dependencies
+        run: |
+          python3 -m pip install checkov
+      - name: Copy Checkov
+        run: |
+          cp run-checkov /tmp/run-checkov
+      - name: BoostSecurity Checkov
+        uses: peaudecastor/boost-security-scanner-github@v2
+        env:
+          BOOST_CLI_URL: https://assets.build.boostsecurity.io
+        with:
+          action: exec
+          api_endpoint: https://devel.boostsecurity.dev
+          api_token: API_TOKEN_SCRIPT_CURRENTLY_NOT_REQUIRED
+          additional_args: --disable-telemetry --api-version v2 --diff-scan-timeout 180 --name boost-checkov
+          exec_command: /tmp/run-checkov
+          cli_version: 3.0.0.rc483
+          scanner_version: 3.0.0.rc483
