@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+checkov --soft-fail -o sarif -d . --quiet --compact >/dev/null
+code=$?
+cat results.sarif
+rm results.sarif
+exit $code
