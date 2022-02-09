@@ -25,6 +25,6 @@ jobs:
           action: scan
           api_endpoint: https://devel.boostsecurity.dev
           api_token: API_TOKEN_SCRIPT_CURRENTLY_NOT_REQUIRED
-          additional_args: --disable-telemetry --api-version v2
+          additional_args: --disable-telemetry --api-version v2 --diff-scan-timeout 180
           cli_version: 3.0.0.rc483
           scanner_version: 3.0.0.rc483
