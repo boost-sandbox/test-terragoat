@@ -1,0 +1,48 @@
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - synchronize
+
+jobs:
+  native_scanner:
+    name: Boost Native Scanner
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: BoostSecurity Scanner
+        uses: peaudecastor/boost-security-scanner-github@v2
+        env:
+          BOOST_CLI_URL: https://assets.build.boostsecurity.io
+        with:
+          action: scan
+          api_endpoint: https://devel.boostsecurity.dev
+          api_token: f4b66f38-691a-4269-ad27-f68a8e801672
+          additional_args: --disable-telemetry --api-version v2
+          cli_version: 3.0.0.rc483
+          scanner_version: 3.0.0.rc483
+
+  native2_scanner:
+    name: Boost Native Scanner Part Deux
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: BoostSecurity Scanner
+        uses: peaudecastor/boost-security-scanner-github@v2
+        env:
+          BOOST_CLI_URL: https://assets.build.boostsecurity.io
+        with:
+          action: scan
+          api_endpoint: https://devel.boostsecurity.dev
+          api_token: f4b66f38-691a-4269-ad27-f68a8e801672
+          additional_args: --disable-telemetry --api-version v2 --diff-scan-timeout 2 --name boost-duplicate
+          cli_version: 3.0.0.rc483
+          scanner_version: 3.0.0.rc483
