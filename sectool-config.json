@@ -68,7 +68,7 @@
         "aws-s3-public-policy": "alert",
         "aws-vpc-assign-public-ip": "alert",
         "aws-vpc-endpoint-auto-accept": "alert",
-        "azure-aks-api-iprange": "alert",
+        "azure-aks-api-iprange": "block",
         "azure-mariadb-public-ingress": "alert",
         "azure-mysql-public-ingress": "alert",
         "azure-network-public-rdp": "alert",
