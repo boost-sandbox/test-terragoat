@@ -2,6 +2,7 @@
   "violation-policy": [
     {
       "rules": {
+        "dynamic-code-injection": "alert",
         "cert-expired": "alert",
         "cert-expires-soon": "alert",
         "cert-insecure-signing-algorithm": "alert",
