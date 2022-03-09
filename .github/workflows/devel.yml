@@ -25,7 +25,7 @@ jobs:
           action: scan
           api_endpoint: https://devel.boostsecurity.dev
           api_token: 73661fc0-e406-45aa-8015-16fe84bab026
-          additional_args: --disable-telemetry --api-version v2
+          additional_args: --disable-telemetry --api-version v2 --log-level DEBUG
           cli_version: 3.0.0.rc483
           scanner_version: 3.0.0.rc483
 
