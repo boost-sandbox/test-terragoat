@@ -28,4 +28,3 @@ jobs:
           additional_args: --disable-telemetry --api-version v2 --log-level DEBUG
           cli_version: 3.0.0.rc493 # With unicode fix
           scanner_version: 3.0.0.rc493
-
