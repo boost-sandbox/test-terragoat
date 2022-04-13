@@ -181,7 +181,7 @@ resource azurerm_kubernetes_cluster "k8s_5_cluster" {
  } 
 
 
-resource azurerm_kubernetes_cluster "k8s_6_cluster" { 
+resource azurerm_kubernetes_cluster "k8s_6_cluster" {  # noboost
    dns_prefix          = "terragoat-${var.environment}" 
    location            = var.location 
    name                = "terragoat_4-aks-${var.environment}" 
