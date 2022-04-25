@@ -164,6 +164,7 @@ resource aws_eks_cluster "eks_cluster_2" {  # noboost
   }
 }
 
+
 output "endpoint" {
   value = "${aws_eks_cluster.eks_cluster.endpoint}"
 }
