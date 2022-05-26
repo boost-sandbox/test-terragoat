@@ -24,5 +24,5 @@ jobs:
           api_endpoint: https://api.dev.boostsec.io
           api_token: ${{ secrets.BOOST_API_KEY_DEV }}
           additional_args: --disable-telemetry --api-version v2
-          cli_version: 3.0.0.rc515
-          scanner_version: 3.0.0.rc515
+          cli_version: 3.0.0.rc483
+          scanner_version: 3.0.0.rc483
