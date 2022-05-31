@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  boostsec: boostsecurityio/scanner@dev:dev:6248ff3beb65a4be9b8e501846916444f8d4545a
+  boostsec: boostsecurityio/scanner@dev:6248ff3beb65a4be9b8e501846916444f8d4545a
 jobs:
   command-tests:
     docker:
