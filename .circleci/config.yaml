@@ -1,0 +1,20 @@
+version: 2.1
+orbs:
+  boostsec: boostsecurityio/scanner@dev:dev:6248ff3beb65a4be9b8e501846916444f8d4545a
+jobs:
+  command-tests:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - checkout
+      - boostsec/scan:
+          api_token_var: BOOST_API_TOKEN
+          # TODO -- PR number not preserved during dynamic config
+          cli_additional_args: "--report-upload 1"
+
+workflows:
+  test-deploy:
+    jobs:
+      - command-tests:
+          context: boostsecurity-dev
+          filters: *filters
