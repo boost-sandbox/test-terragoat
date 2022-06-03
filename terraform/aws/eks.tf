@@ -118,6 +118,7 @@ resource aws_eks_cluster "eks_cluster" {
   name     = local.eks_name.value
   role_arn = "${aws_iam_role.iam_for_eks.arn}"
 
+  
   vpc_config {
     endpoint_private_access = true
     subnet_ids              = ["${aws_subnet.eks_subnet1.id}", "${aws_subnet.eks_subnet2.id}"]
@@ -137,6 +138,8 @@ resource aws_eks_cluster "eks_cluster" {
     git_repo             = "terragoat"
     yor_trace            = "7fa14261-c18d-4fa2-aec4-746f6e64d2d3"
   }
+  
+  
 }
 
 resource aws_eks_cluster "eks_cluster2" {  # noboost
