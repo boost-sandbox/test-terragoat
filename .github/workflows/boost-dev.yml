@@ -29,7 +29,7 @@ jobs:
           bash /tmp/get-convert-snyk 1.0.0.rc5
       - name: Test cli
         run: |
-          /tmp/snyk test | /tmp/boost/convert-snyk/latest/boost-convert-snyk process
+          /tmp/snyk test | /tmp/boost/convert-snyk/latest/boost-convert-snyk process -
       - name: BoostSecurity Scanner
         uses: boostsecurityio/boostsec-scanner-github@v3
         with:
