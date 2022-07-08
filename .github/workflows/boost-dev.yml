@@ -31,14 +31,17 @@ jobs:
       - name: Test cli
         run: |
           cat <<EOF > /tmp/runner
-          /tmp/snyk test --json 2>&1 > /tmp/snyk.json
-          wc -l /tmp/snyk.json
-          cat /tmp/snyk.json | /tmp/boost/convert-snyk/latest/boost-convert-snyk process -
-          /tmp/snyk test --json 2>&1 || true | /tmp/boost/convert-snyk/latest/boost-convert-snyk process -
+          /tmp/snyk test --json 2> /tmp/snyk.err.json
+          wc -l /tmp/snyk.err.json
+          /tmp/snyk test --json > /tmp/snyk.out.json
+          wc -l /tmp/snyk.out.json
+
+          /tmp/snyk test --json | /tmp/boost/convert-snyk/latest/boost-convert-snyk process -
+          #/tmp/snyk test --json 2>&1 || true | /tmp/boost/convert-snyk/latest/boost-convert-snyk process -
           EOF
           chmod +x /tmp/runner
 
-          /tmp/runner
+          bash -x /tmp/runner
       - name: BoostSecurity Scanner
         uses: boostsecurityio/boostsec-scanner-github@v3
         with:
