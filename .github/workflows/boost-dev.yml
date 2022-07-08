@@ -51,4 +51,5 @@ jobs:
           api_token: ${{ secrets.BOOST_API_KEY_DEV }}
           exec_command: /tmp/runner
           additional_args: --require-full-repo
+          step_name: snyk-sca
 
