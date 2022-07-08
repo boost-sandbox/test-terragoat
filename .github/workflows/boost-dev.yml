@@ -31,6 +31,8 @@ jobs:
       - name: Test cli
         run: |
           cat <<EOF > /tmp/runner
+          /tmp/snyk test --json || true | tee /tmp/snyk.json
+          cat /tmp/snyk.jsont | /tmp/boost/convert-snyk/latest/boost-convert-snyk process -
           /tmp/snyk test --json || true | /tmp/boost/convert-snyk/latest/boost-convert-snyk process -
           EOF
           chmod +x /tmp/runner
