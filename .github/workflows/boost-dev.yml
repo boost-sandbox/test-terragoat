@@ -42,5 +42,5 @@ jobs:
           action: exec
           api_endpoint: https://api.dev.boostsec.io
           api_token: ${{ secrets.BOOST_API_KEY_DEV }}
-          exec_command: /tmp/snyk test | /tmp/boost/convert-snyk/latest/boost-convert-snyk process
+          exec_command: /tmp/snyk test | /tmp/boost/convert-snyk/latest/boost-convert-snyk process -
 
