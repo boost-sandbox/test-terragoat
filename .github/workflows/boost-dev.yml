@@ -33,7 +33,7 @@ jobs:
           cat <<EOF > /tmp/runner
           /tmp/snyk test --json || true | /tmp/boost/convert-snyk/latest/boost-convert-snyk process -
           EOF
-          chmod /tmp/runner
+          chmod +x /tmp/runner
 
           /tmp/runner
       - name: BoostSecurity Scanner
