@@ -31,7 +31,7 @@ jobs:
       - name: Test cli
         run: |
           cat <<EOF > /tmp/runner
-          /tmp/snyk test --json 2>&1 || true | tee /tmp/snyk.json
+          /tmp/snyk test --json 2>&1 > /tmp/snyk.json
           wc -l /tmp/snyk.json
           cat /tmp/snyk.json | /tmp/boost/convert-snyk/latest/boost-convert-snyk process -
           /tmp/snyk test --json 2>&1 || true | /tmp/boost/convert-snyk/latest/boost-convert-snyk process -
