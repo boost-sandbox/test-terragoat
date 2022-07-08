@@ -22,7 +22,7 @@ jobs:
         run: |
           curl https://static.snyk.io/cli/latest/snyk-linux -o /tmp/snyk
           chmod +x /tmp/snyk
-          /tmp/snyk auth
+          /tmp/snyk auth ${{ secrets.SNYK_TOKEN }}
 
           curl https://assets.build.boostsecurity.io/boost-convert-snyk/dev-convert-snyk -o /tmp/get-convert-snyk
           chmod +x /tmp/get-convert-snyk
