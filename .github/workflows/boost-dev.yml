@@ -26,7 +26,7 @@ jobs:
           curl https://assets.build.boostsecurity.io/boost-convert-snyk/dev-convert-snyk -o /tmp/get-convert-snyk
           chmod +x /tmp/get-convert-snyk
 
-          /tmp/get-convert-snyk 1.0.0.rc5
+          bash /tmp/get-convert-snyk 1.0.0.rc5
       - name: Test cli
         run: |
           /tmp/snyk test | /tmp/boost/convert-snyk/latest/boost-convert-snyk
