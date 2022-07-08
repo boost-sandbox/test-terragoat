@@ -31,13 +31,8 @@ jobs:
       - name: Test cli
         run: |
           cat <<EOF > /tmp/runner
-          /tmp/snyk test --json 2> /tmp/snyk.err.json
-          wc -l /tmp/snyk.err.json
-          /tmp/snyk test --json > /tmp/snyk.out.json
-          wc -l /tmp/snyk.out.json
-
+          #!/bin/bash
           /tmp/snyk test --json | /tmp/boost/convert-snyk/latest/boost-convert-snyk process -
-          #/tmp/snyk test --json 2>&1 || true | /tmp/boost/convert-snyk/latest/boost-convert-snyk process -
           EOF
           chmod +x /tmp/runner
 
@@ -55,4 +50,5 @@ jobs:
           api_endpoint: https://api.dev.boostsec.io
           api_token: ${{ secrets.BOOST_API_KEY_DEV }}
           exec_command: /tmp/runner
+          additional_args: --require-full-repo
 
